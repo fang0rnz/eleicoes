@@ -26,8 +26,12 @@ public class Teste {
 		System.out.println(sc.next());
 		NumberFormat nf = NumberFormat.getNumberInstance(); 
 		nf.setGroupingUsed(true);
-		Number teste = nf.parse(sc.next());
-		//System.out.println(teste);
+		String teste = sc.next();
+		Number teste1 = (nf.parse(teste));
+		int teste2 = teste1.intValue();
+		System.out.println(teste);
+		System.out.println(teste2);
+		
 		System.out.println(sc.next());
 		
 		
