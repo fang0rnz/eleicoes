@@ -22,6 +22,17 @@ public class Leitor {
 	//COMOFAS
 	public Partido lePartido(){
 		Partido part = null;
+		sc.nextLine();
+		sc.useDelimiter(";|\\n");
+		while (sc.hasNext()){
+			sc.next(); sc.next(); sc.next();
+			sc.useDelimiter(";| - ");
+			System.out.println(sc.next());
+			sc.useDelimiter(";|\\n");
+			sc.next(); sc.next(); sc.next();
+	}
+		
+		
 		return part;
 	}
 	
