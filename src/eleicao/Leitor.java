@@ -29,9 +29,10 @@ public class Leitor {
 		sc.useDelimiter(";|\\n");
 		while (sc.hasNext()){
 			sc.next(); sc.next(); sc.next();
-			sc.useDelimiter(" - "); 
-			if(sc.hasNext())
-				System.out.println(sc.next());
+			sc.useDelimiter(" - |;");
+			String atual = sc.next();
+			if (atual.length() < 5)
+				System.out.println(atual);
 			sc.useDelimiter(";|\\n");
 			sc.next(); sc.next(); sc.next();
 	}
