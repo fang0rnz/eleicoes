@@ -18,5 +18,12 @@ public class Leitor {
 		}
 	}
 	
+	
+	//COMOFAS
+	public Partido lePartido(){
+		Partido part = null;
+		return part;
+	}
+	
 
 }
