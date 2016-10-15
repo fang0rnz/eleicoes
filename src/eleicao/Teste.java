@@ -21,7 +21,7 @@ public class Teste {
 				System.out.println("Candidato desclassificado");
 			pos = pos.substring(1);
 		}
-			int posic = Integer.parseInt(pos);
+		int posic = Integer.parseInt(pos);
 		System.out.println(posic);
 		int numerocand = Integer.parseInt(sc.next());
 		System.out.println(numerocand);
