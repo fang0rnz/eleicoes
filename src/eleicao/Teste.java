@@ -13,7 +13,6 @@ public class Teste {
 		Scanner sc = new Scanner(file);
 		sc.useDelimiter(";|\\n");
 		String atual = sc.nextLine();
-		Scanner scanline = new Scanner (atual);
 		scanline.useDelimiter(";|\\n");
 		String pos = sc.next();
 		if (pos.contains("*")||pos.contains("#")){
