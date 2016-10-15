@@ -9,11 +9,10 @@ import java.util.Locale;
 public class Teste {
 
 	public static void main(String[] args) throws FileNotFoundException, ParseException {
-		File file = new File("/home/2014100667/workspace1/trabalhoprog3/src/eleicao/vitoria2016.csv");
+		File file = new File("/home/lucas/workspace/trabalhoprog3/src/eleicao/vitoria2016.csv");
 		Scanner sc = new Scanner(file);
 		sc.useDelimiter(";|\\n");
 		String atual = sc.nextLine();
-		scanline.useDelimiter(";|\\n");
 		String pos = sc.next();
 		if (pos.contains("*")||pos.contains("#")){
 			if (pos.charAt(0) == '*')
