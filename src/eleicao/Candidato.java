@@ -17,6 +17,11 @@ public class Candidato {
 		//partido??
 	}
 	
+	@Override
+	public boolean equals(Object o){
+		return this.nome.equals(((Candidato)o).nome);
+	}
+	
 	//setters e getters
 	public boolean isEleito() {
 		return eleito;

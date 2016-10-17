@@ -8,4 +8,10 @@ public class Partido {
 	public Partido (String nome){
 		this.nome = nome;
 	}
+	
+	@Override
+	public boolean equals(Object o){
+		return this.nome.equals(((Partido)o).nome);
+	}
 }
+

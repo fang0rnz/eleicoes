@@ -1,17 +1,18 @@
 package eleicao;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Scanner;
 import java.util.Locale;
 public class Teste {
 
-	public static void main(String[] args) throws FileNotFoundException, ParseException {
+	public static void main(String[] args){
 		
 		Leitor leitor = new Leitor("/home/2014100667/workspace1/trabalhoprog3/src/eleicao/vitoria2016.csv");
 		leitor.lePartido();
+		Candidato cand1 = new Candidato("Adalberto", 0, 0, false, null); //teste de override
+		Candidato cand2 = new Candidato("Adalberto", 0, 0, false, null); //teste de override
+		System.out.println(cand1.equals(cand2));
 		//File file = new File("/home/lucas/workspace/trabalhoprog3/src/eleicao/vitoria2016.csv");
 		//Scanner sc = new Scanner(file);
 		//sc.useDelimiter(";|\\n");

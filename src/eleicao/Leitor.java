@@ -27,18 +27,20 @@ public class Leitor {
 		Partido part = null;
 		sc.nextLine();
 		sc.useDelimiter(";|\\n");
-		String partidocolig = null;
+		String partido = null;
+		Partido[] listapartidos = null;
 		int indice;
 		while (sc.hasNext()){
 			sc.next(); sc.next(); sc.next();
-			partidocolig = sc.next();
+			partido = sc.next();
 			
-			if (partidocolig.contains("-")){ // Partido sem coligação 
-				indice = partidocolig.indexOf("-") - 1; //acha o indice do caracter que separa coligação
+			if (partido.contains("-")){ // Partido sem coligação 
+				indice = partido.indexOf("-") - 1; //acha o indice do caracter que separa coligação
 				//teste
-				partidocolig = partidocolig.substring(0, indice); //retorna a substring do início até o índice
+				partido = partido.substring(0, indice); //retorna a substring do início até o índice
 			}
-			System.out.println(partidocolig);
+			
+			System.out.println(partido);
 			sc.next(); sc.next();
 		}
 		
