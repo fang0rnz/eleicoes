@@ -10,6 +10,10 @@ public class Partido {
 	}
 	
 	@Override
+	public String toString(){
+		return this.nome;
+	}
+	@Override
 	public boolean equals(Object o){
 		return this.nome.equals(((Partido)o).nome);
 	}

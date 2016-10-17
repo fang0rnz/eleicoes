@@ -2,7 +2,12 @@ package eleicao;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.TreeSet;
+import java.util.concurrent.LinkedBlockingDeque;
 
 public class Leitor {
 	Scanner sc = null;
@@ -23,12 +28,11 @@ public class Leitor {
 	//Delimitador tem que mudar pra pegar apenas o partido,
 	//mas quando nao existe coligacao o caracter
 	//" - " nao esta presente, checar arquivo .csv
-	public Partido lePartido(){
-		Partido part = null;
+	public HashMap<String, Partido> lePartido(){
 		sc.nextLine();
 		sc.useDelimiter(";|\\n");
 		String partido = null;
-		Partido[] listapartidos = null;
+		HashMap<String, Partido> setPartidos = new HashMap<String, Partido>();
 		int indice;
 		while (sc.hasNext()){
 			sc.next(); sc.next(); sc.next();
@@ -40,12 +44,14 @@ public class Leitor {
 				partido = partido.substring(0, indice); //retorna a substring do início até o índice
 			}
 			
-			System.out.println(partido);
+			//System.out.println(partido);
+			setPartidos.put(partido , new Partido(partido));
 			sc.next(); sc.next();
 		}
+		System.out.println(setPartidos);
 		
 		
-		return part;
+		return setPartidos;
 	}
 	
 
