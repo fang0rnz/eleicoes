@@ -17,5 +17,14 @@ public class Partido {
 	public boolean equals(Object o){
 		return this.nome.equals(((Partido)o).nome);
 	}
+	
+	//getter
+	public LinkedList<Candidato> getCandidatos() {
+		return candidatos;
+	}
+	
+	public void addCandidato(Candidato c){ 
+		this.candidatos.add(c); //adiciona candidato na lista do partido
+	}
 }
 

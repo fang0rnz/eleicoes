@@ -45,7 +45,8 @@ public class Leitor {
 			}
 			
 			//System.out.println(partido);
-			setPartidos.put(partido , new Partido(partido));
+			if (!setPartidos.containsKey(partido))
+				setPartidos.put(partido , new Partido(partido));
 			sc.next(); sc.next();
 		}
 		System.out.println(setPartidos);
