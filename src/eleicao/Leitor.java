@@ -3,11 +3,7 @@ package eleicao;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.Scanner;
-import java.util.TreeSet;
-import java.util.concurrent.LinkedBlockingDeque;
 
 public class Leitor {
 	Scanner sc = null;
@@ -51,6 +47,7 @@ public class Leitor {
 		}
 		System.out.println(setPartidos);
 		
+		 
 		
 		return setPartidos;
 	}
