@@ -35,11 +35,12 @@ public class Leitor {
 			
 			if (partidocolig.contains("-")){ // Partido sem coligação 
 				indice = partidocolig.indexOf("-") - 1; //acha o indice do caracter que separa coligação
+				//teste
 				partidocolig = partidocolig.substring(0, indice); //retorna a substring do início até o índice
 			}
 			System.out.println(partidocolig);
 			sc.next(); sc.next();
-	}
+		}
 		
 		
 		return part;

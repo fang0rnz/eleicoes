@@ -10,7 +10,7 @@ public class Teste {
 
 	public static void main(String[] args) throws FileNotFoundException, ParseException {
 		
-		Leitor leitor = new Leitor("/home/lucas/workspace/trabalhoprog3/src/eleicao/vitoria2016.csv");
+		Leitor leitor = new Leitor("/home/2014100667/workspace1/trabalhoprog3/src/eleicao/vitoria2016.csv");
 		leitor.lePartido();
 		//File file = new File("/home/lucas/workspace/trabalhoprog3/src/eleicao/vitoria2016.csv");
 		//Scanner sc = new Scanner(file);
