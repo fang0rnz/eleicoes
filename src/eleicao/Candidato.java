@@ -21,7 +21,7 @@ public class Candidato {
 	public boolean isEleito() {
 		return eleito;
 	}
-	//teste
+	//teste1
 	public void setEleito(boolean eleito) {
 		this.eleito = true;
 	}
