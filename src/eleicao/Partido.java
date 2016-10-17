@@ -19,6 +19,17 @@ public class Partido {
 	}
 	
 	//getter
+	public Candidato getCandidato(String candidato){ //pega candidato pela string
+		Candidato c = null;
+		for (Candidato ca : candidatos) {
+			if (ca.getNome().equals(candidato)){
+				c = ca;
+				break;
+			}
+		}
+		return c;
+	}
+	
 	public LinkedList<Candidato> getCandidatos() {
 		return candidatos;
 	}
