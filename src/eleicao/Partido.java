@@ -40,8 +40,9 @@ public class Partido implements Comparable<Partido>{
 
 	@Override
 	public int compareTo(Partido o) {
-		// TODO Auto-generated method stub
+		if(this.nome.equals(o.nome))
+			return 1;
+
 		return 0;
 	}
 }
-
