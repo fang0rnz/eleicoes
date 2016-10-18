@@ -40,9 +40,6 @@ public class Partido implements Comparable<Partido>{
 
 	@Override
 	public int compareTo(Partido o) {
-		if(this.nome.equals(o.nome))
 			return 1;
-
-		return 0;
 	}
 }

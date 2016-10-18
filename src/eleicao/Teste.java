@@ -9,7 +9,8 @@ public class Teste {
 	public static void main(String[] args){
 		
 		Leitor leitor = new Leitor("vitoria2016.csv");
-		leitor.lePartido();
+		leitor.leColigacoes();
+		//leitor.lePartido();
 		Candidato cand1 = new Candidato("Adalberto", 0, 0, false, null); //teste de override
 		Candidato cand2 = new Candidato("Adalberto", 0, 0, false, null); //teste de override
 		System.out.println(cand1.equals(cand2));
