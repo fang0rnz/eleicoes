@@ -1,7 +1,7 @@
 package eleicao;
 import java.util.LinkedList;
 
-public class Partido {
+public class Partido implements Comparable<Partido>{
 	private String nome;
 	private LinkedList<Candidato> candidatos = new LinkedList<Candidato>();
 	
@@ -36,6 +36,12 @@ public class Partido {
 	
 	public void addCandidato(Candidato c){ 
 		this.candidatos.add(c); //adiciona candidato na lista do partido
+	}
+
+	@Override
+	public int compareTo(Partido o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
 

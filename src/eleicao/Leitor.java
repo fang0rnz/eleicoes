@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Leitor {
 	Scanner sc = null;
@@ -24,11 +25,11 @@ public class Leitor {
 	//Delimitador tem que mudar pra pegar apenas o partido,
 	//mas quando nao existe coligacao o caracter
 	//" - " nao esta presente, checar arquivo .csv
-	public HashMap<String, Partido> lePartido(){
+	public TreeMap<String, Partido> lePartido(){
 		sc.nextLine();
 		sc.useDelimiter(";|\\n");
 		String partido = null;
-		HashMap<String, Partido> setPartidos = new HashMap<String, Partido>();
+		TreeMap<String, Partido> setPartidos = new TreeMap<String, Partido>();
 		int indice;
 		while (sc.hasNext()){
 			sc.next(); sc.next(); sc.next();
@@ -46,11 +47,11 @@ public class Leitor {
 			sc.next(); sc.next();
 		}
 		System.out.println(setPartidos);
-		
-		 
-		
+		sc.close();
 		return setPartidos;
 	}
+	
+	
 	
 
 }
