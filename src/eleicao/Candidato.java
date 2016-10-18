@@ -9,12 +9,13 @@ public class Candidato {
 	
 	//construtor
 	//problema: como receber uma String com o nome do partido e settar o partido com o tipo correto
-	public Candidato(String nome, int numero, int nvotos, boolean eleito, String partido) {
+	//por que não receber o objeto partido correspondente? A classe eleição pode cuidar disso.
+	public Candidato(String nome, int numero, int nvotos, boolean eleito, Partido partido) {
 		this.nome = nome;
 		this.numero = numero;
 		this.nvotos = nvotos;
 		this.eleito = eleito;
-		//partido??
+		this.partido = partido;
 	}
 	
 	@Override
@@ -27,8 +28,9 @@ public class Candidato {
 		return eleito;
 	}
 	//teste1
+	//Modificado porque ou setEleito não recebe parâmetro nenhum, ou deve setar a variável eleito como o parâmetro recebido.
 	public void setEleito(boolean eleito) {
-		this.eleito = true;
+		this.eleito = eleito;
 	}
 	
 	public String getNome() {
@@ -51,8 +53,11 @@ public class Candidato {
 		return nvotos;
 	}
 	
+	//Modificado porque não faz sentido receber um número de votos como parâmetro e somente somar um ao contador de votos
+	//Uma sugestão melhor seria mudar o nome desse método para setNvotos(int nvotos) e criar outro método
+	//com o nome addVoto() que faz simplesmente a operação this.nvotos++ caso isso seja útil para o programa
 	public void addNvotos(int nvotos) {
-		this.nvotos++;
+		this.nvotos = nvotos;
 	}
 	
 	
