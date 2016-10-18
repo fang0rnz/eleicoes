@@ -2,7 +2,6 @@ package eleicao;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
 import java.util.Scanner;
 import java.util.TreeMap;
 
@@ -35,7 +34,7 @@ public class Leitor {
 			sc.next(); sc.next(); sc.next();
 			partido = sc.next();
 			
-			if (partido.contains("-")){ // Partido sem coligação 
+			if (partido.contains("-")){ // Partido com coligação 
 				indice = partido.indexOf("-") - 1; //acha o indice do caracter que separa coligação
 				//teste
 				partido = partido.substring(0, indice); //retorna a substring do início até o índice
@@ -50,8 +49,4 @@ public class Leitor {
 		sc.close();
 		return setPartidos;
 	}
-	
-	
-	
-
 }

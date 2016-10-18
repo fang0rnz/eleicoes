@@ -1,9 +1,5 @@
 package eleicao;
 
-import java.text.NumberFormat;
-import java.text.ParseException;
-import java.util.Scanner;
-import java.util.Locale;
 public class Teste {
 
 	public static void main(String[] args){

@@ -54,8 +54,6 @@ public class Candidato {
 	}
 	
 	//Modificado porque não faz sentido receber um número de votos como parâmetro e somente somar um ao contador de votos
-	//Uma sugestão melhor seria mudar o nome desse método para setNvotos(int nvotos) e criar outro método
-	//com o nome addVoto() que faz simplesmente a operação this.nvotos++ caso isso seja útil para o programa
 	public void addNvotos(int nvotos) {
 		this.nvotos += nvotos; //adiciona n votos de uma vez só
 	}

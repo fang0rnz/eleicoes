@@ -30,6 +30,11 @@ public class Partido implements Comparable<Partido>{
 		return c;
 	}
 	
+	//Getter de nome do partido
+	public String getNome() {
+		return nome;
+	}
+
 	public LinkedList<Candidato> getCandidatos() {
 		return candidatos;
 	}
