@@ -8,7 +8,7 @@ public class Teste {
 
 	public static void main(String[] args){
 		
-		Leitor leitor = new Leitor("/home/lucas/workspace/trabalhoprog3/src/eleicao/vitoria2016.csv");
+		Leitor leitor = new Leitor("vitoria2016.csv");
 		leitor.lePartido();
 		Candidato cand1 = new Candidato("Adalberto", 0, 0, false, null); //teste de override
 		Candidato cand2 = new Candidato("Adalberto", 0, 0, false, null); //teste de override
