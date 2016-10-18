@@ -27,10 +27,10 @@ public class Candidato {
 	public boolean isEleito() {
 		return eleito;
 	}
-	//teste1
-	//Modificado porque ou setEleito não recebe parâmetro nenhum, ou deve setar a variável eleito como o parâmetro recebido.
-	public void setEleito(boolean eleito) {
-		this.eleito = eleito;
+	
+	//Por padrão é false, então é só chamar pra settar true
+	public void setEleito() {
+		this.eleito = true;
 	}
 	
 	public String getNome() {
@@ -57,7 +57,11 @@ public class Candidato {
 	//Uma sugestão melhor seria mudar o nome desse método para setNvotos(int nvotos) e criar outro método
 	//com o nome addVoto() que faz simplesmente a operação this.nvotos++ caso isso seja útil para o programa
 	public void addNvotos(int nvotos) {
-		this.nvotos = nvotos;
+		this.nvotos += nvotos; //adiciona n votos de uma vez só
+	}
+	
+	public void addVoto() {
+		this.nvotos++; //adiciona 1 voto
 	}
 	
 	
