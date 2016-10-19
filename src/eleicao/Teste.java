@@ -1,17 +1,20 @@
 package eleicao;
 
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 
 public class Teste {
 
-	public static void main(String[] args){
+	public static void main(String[] args) throws FileNotFoundException{
 		
 		Eleicao e = new Eleicao();
 		Leitor leitor = new Leitor("vitoria2016.csv");
 		HashMap <String, Coligacao> coligs = leitor.leColigacoes();
-		
+		HashMap <String, Partido> parts = leitor.lePartidos();
 		e.addColigacoes(coligs);
-		System.out.println(e.getColigacoes()); //it just werks
+		e.addPartidos(parts);
+		System.out.println(e.getColigacoes()); //just werks
+		System.out.println(e.getPartidos()); //it just werks
 		//leitor.lePartido();
 		Candidato cand1 = new Candidato("Adalberto", 0, 0, false, null); //teste de override
 		Candidato cand2 = new Candidato("Adalberto", 0, 0, false, null); //teste de override

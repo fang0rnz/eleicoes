@@ -11,12 +11,11 @@ public class Leitor {
 	
 	public Leitor (String path) {
 		file = new File(path);
-		try {
-			sc = new Scanner(file);
-		} catch (FileNotFoundException e) {
-			System.out.println("Arquivo não encontrado.");
-			e.printStackTrace();
-		}
+	}
+	
+	private Scanner getScanner() throws FileNotFoundException{
+		Scanner sc = new Scanner(file);
+		return sc;
 	}
 	
 	
@@ -24,7 +23,8 @@ public class Leitor {
 	//Delimitador tem que mudar pra pegar apenas o partido,
 	//mas quando nao existe coligacao o caracter
 	//" - " nao esta presente, checar arquivo .csv
-	public HashMap<String, Partido> lePartido(){
+	public HashMap<String, Partido> lePartidos() throws FileNotFoundException{
+		Scanner sc = getScanner();
 		sc.nextLine();
 		sc.useDelimiter(";|\\n");
 		String partido = null;
@@ -45,12 +45,13 @@ public class Leitor {
 				setPartidos.put(partido , new Partido(partido));
 			sc.next(); sc.next();
 		}
-		System.out.println(setPartidos);
+		//System.out.println(setPartidos);
 		sc.close();
 		return setPartidos;
 	}
 	
-	public HashMap<String, Coligacao> leColigacoes(){
+	public HashMap<String, Coligacao> leColigacoes() throws FileNotFoundException{
+		Scanner sc = getScanner();
 		sc.nextLine();
 		sc.useDelimiter(";|\\n");
 		String coligacao = null;

@@ -15,7 +15,7 @@ public class Eleicao {
 	private int vagas;
 
 	public void addPartidos(HashMap<String, Partido> partidos){ //manda o hashmap direto pra lista
-		this.partidos = (LinkedList<Partido>)partidos.values(); //TODO: CASTING NAO FUNCIONA ENTAO TEM QUE FAZER UM FOREACH IGUAL EM COLIGACOES OU DESCOBRIR COMO FAZ CAST DE COLLECTION PRA LINKEDLIST
+		this.partidos = new LinkedList<Partido>(partidos.values());
 	}
 
 	public void addCandidato(Candidato c){
@@ -25,8 +25,7 @@ public class Eleicao {
 	}
 
 	public void addColigacoes(HashMap<String, Coligacao> coligacoes){ //manda o hashmap direto pra lista
-		Collection<Coligacao> colig = coligacoes.values();
-		this.coligacoes = new LinkedList<Coligacao>(colig);
+		this.coligacoes = new LinkedList<Coligacao>(coligacoes.values());
 	}
 
 	public void listarEleitos(){
@@ -56,4 +55,9 @@ public class Eleicao {
 	public LinkedList<Coligacao> getColigacoes() {
 		return coligacoes;
 	}
+
+	public LinkedList<Partido> getPartidos() {
+		return partidos;
+	}
+
 }
