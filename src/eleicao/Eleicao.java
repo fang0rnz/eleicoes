@@ -39,7 +39,7 @@ public class Eleicao {
 			if(c.isEleito()){
 				saida = contador + " - " + c.getNome() + " (" + c.getPartido().getNome() + ", " + c.getNvotos() + " votos)";
 				if(c.getPartido().temColigacao())
-					saida += " - Coligação: " + c.getPartido().getColigacao().getId();
+					saida += " - Coligação: " + c.getPartido().getColigacao().getId(); //PROBLEMA: NA HORA DE IMPRIMIR AS COLIGACOES COM MAIS VOTOS  TENHO QUE CONTAR PARTIDOS SOZINHOS COMO COLIGACOES, ADICIONAR FLAG QUE CONTA QUANTIDADE DE CANDIDATOS ELEITOS DAQUELA COLIGACAO / PARTIDO
 				System.out.println(saida);		
 				contador++;
 			}
