@@ -70,7 +70,7 @@ public class Leitor {
 				setColigacoes.put(coligacao , new Coligacao(coligacao));
 			sc.next(); sc.next();
 		}
-		System.out.println(setColigacoes);
+		//System.out.println(setColigacoes);
 		sc.close();
 		return setColigacoes;
 	}

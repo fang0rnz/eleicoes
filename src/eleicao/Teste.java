@@ -1,11 +1,17 @@
 package eleicao;
 
+import java.util.HashMap;
+
 public class Teste {
 
 	public static void main(String[] args){
 		
+		Eleicao e = new Eleicao();
 		Leitor leitor = new Leitor("vitoria2016.csv");
-		leitor.leColigacoes();
+		HashMap <String, Coligacao> coligs = leitor.leColigacoes();
+		
+		e.addColigacoes(coligs);
+		System.out.println(e.getColigacoes());
 		//leitor.lePartido();
 		Candidato cand1 = new Candidato("Adalberto", 0, 0, false, null); //teste de override
 		Candidato cand2 = new Candidato("Adalberto", 0, 0, false, null); //teste de override

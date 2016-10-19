@@ -1,6 +1,8 @@
 package eleicao;
 
+import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 public class Eleicao {
@@ -12,8 +14,8 @@ public class Eleicao {
 	boolean coligacoesOrdenadas = false;
 	private int vagas;
 
-	public void addPartido(Partido p){
-		partidos.add(p);
+	public void addPartidos(HashMap<String, Partido> partidos){ //manda o hashmap direto pra lista
+		this.partidos = (LinkedList<Partido>)partidos.values(); //TODO: CASTING NAO FUNCIONA ENTAO TEM QUE FAZER UM FOREACH IGUAL EM COLIGACOES OU DESCOBRIR COMO FAZ CAST DE COLLECTION PRA LINKEDLIST
 	}
 
 	public void addCandidato(Candidato c){
@@ -22,8 +24,11 @@ public class Eleicao {
 			vagas++;
 	}
 
-	public void addColigacao(Coligacao c){
-		coligacoes.add(c);
+	public void addColigacoes(HashMap<String, Coligacao> coligacoes){ //manda o hashmap direto pra lista
+		Collection<Coligacao> colig = coligacoes.values();
+		for (Coligacao coligacao : colig) {
+			this.coligacoes.add(coligacao);
+		}
 	}
 
 	public void listarEleitos(){
@@ -48,5 +53,9 @@ public class Eleicao {
 
 	public int getVagas() {
 		return vagas;
+	}
+
+	public LinkedList<Coligacao> getColigacoes() {
+		return coligacoes;
 	}
 }
