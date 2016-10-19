@@ -1,23 +1,21 @@
 package eleicao;
 
-import java.util.HashMap;
+import java.util.LinkedList;
 
 public class Eleicao {
-	private HashMap<String, Partido> partidos = new HashMap<String, Partido>();
-	private HashMap<String, Candidato> candidatos = new HashMap<String, Candidato>();
-	//Mapeamento da Coligação pode ser feito através da String
-	//obtida pelo arquivo. Exemplo: "- PPS / PROS"
-	private HashMap<String, Coligacao> coligacoes = new HashMap<String, Coligacao>();
+	private LinkedList<Partido> partidos = new LinkedList<Partido>();
+	private LinkedList<Candidato> candidatos = new LinkedList<Candidato>();
+	private LinkedList<Coligacao> coligacoes = new LinkedList<Coligacao>();
 
 	public void addPartido(Partido p){
-		partidos.put(p.getNome(),p);
+		partidos.add(p);
 	}
 
 	public void addCandidato(Candidato c){
-		candidatos.put(c.getNome(),c);
+		candidatos.add(c);
 	}
 
 	public void addColigacao(Coligacao c){
-		coligacoes.put(c.getId(),c);
+		coligacoes.add(c);
 	}
 }
