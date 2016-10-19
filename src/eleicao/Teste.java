@@ -11,7 +11,7 @@ public class Teste {
 		HashMap <String, Coligacao> coligs = leitor.leColigacoes();
 		
 		e.addColigacoes(coligs);
-		System.out.println(e.getColigacoes());
+		System.out.println(e.getColigacoes()); //it just werks
 		//leitor.lePartido();
 		Candidato cand1 = new Candidato("Adalberto", 0, 0, false, null); //teste de override
 		Candidato cand2 = new Candidato("Adalberto", 0, 0, false, null); //teste de override

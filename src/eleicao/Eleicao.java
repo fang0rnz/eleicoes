@@ -6,9 +6,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 public class Eleicao {
-	private LinkedList<Partido> partidos = new LinkedList<Partido>();
+	private LinkedList<Partido> partidos; //como vamos mandar o hashmap direto pra referencia a classe, os metodos podem cuidar do new
 	private LinkedList<Candidato> candidatos = new LinkedList<Candidato>();
-	private LinkedList<Coligacao> coligacoes = new LinkedList<Coligacao>();
+	private LinkedList<Coligacao> coligacoes; //assim como foi feito aqui, checar metodo addcoligacoes
 	boolean partidosOrdenados = false;
 	boolean candidatosOrdenados = false;
 	boolean coligacoesOrdenadas = false;
@@ -26,9 +26,7 @@ public class Eleicao {
 
 	public void addColigacoes(HashMap<String, Coligacao> coligacoes){ //manda o hashmap direto pra lista
 		Collection<Coligacao> colig = coligacoes.values();
-		for (Coligacao coligacao : colig) {
-			this.coligacoes.add(coligacao);
-		}
+		this.coligacoes = new LinkedList<Coligacao>(colig);
 	}
 
 	public void listarEleitos(){
