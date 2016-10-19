@@ -6,6 +6,10 @@ public class Coligacao {
 	private String id;
 	private HashMap<String, Partido> partidos = new HashMap<String, Partido>();
 
+	public Coligacao(String id) {
+		this.id = id;
+	}
+
 	public void addPartido(Partido p){
 		partidos.put(p.getNome(),p);
 	}
