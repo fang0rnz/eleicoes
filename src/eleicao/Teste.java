@@ -11,6 +11,9 @@ public class Teste {
 		Leitor leitor = new Leitor("vitoria2016.csv");
 		HashMap <String, Coligacao> coligs = leitor.leColigacoes();
 		HashMap <String, Partido> parts = leitor.lePartidos();
+		Partido teste1 = new Partido("KASSINO");
+		parts.get("PP").setNome("AEE KASSINAO");
+		parts.put("KASSINO", teste1);
 		e.addColigacoes(coligs);
 		e.addPartidos(parts);
 		System.out.println(e.getColigacoes()); //just werks
