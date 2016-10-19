@@ -1,6 +1,6 @@
 package eleicao;
 
-public class Candidato {
+public class Candidato implements Comparable<Candidato>{
 	private String nome;
 	private int numero;
 	private int nvotos = 0;
@@ -28,6 +28,10 @@ public class Candidato {
 		return eleito;
 	}
 	
+	public Partido getPartido() {
+		return partido;
+	}
+
 	//Por padrão é false, então é só chamar pra settar true
 	public void setEleito() {
 		this.eleito = true;
@@ -61,6 +65,13 @@ public class Candidato {
 	public void addVoto() {
 		this.nvotos++; //adiciona 1 voto
 	}
-	
-	
+
+	@Override
+	public int compareTo(Candidato c){
+		if(this.nvotos < c.getNvotos())
+			return -1;
+		else if(this.nvotos > c.getNvotos())
+			return 1;
+		return 0;
+	}
 }

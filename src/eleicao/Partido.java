@@ -5,7 +5,8 @@ public class Partido implements Comparable<Partido>{
 	private String nome;
 	private LinkedList<Candidato> candidatos = new LinkedList<Candidato>();
 	private int tVotos;
-	
+	private Coligacao coligacao = null;
+
 	public Partido (String nome){
 		this.nome = nome;
 	}
@@ -37,14 +38,31 @@ public class Partido implements Comparable<Partido>{
 		return candidatos;
 	}
 	
-	public void addCandidato(Candidato c){ 
+	public boolean temColigacao() {
+		return coligacao!=null;
+	}
+
+	public void setColigacao(Coligacao c) {
+		this.coligacao = c;
+	}
+
+	public Coligacao getColigacao(){
+		return coligacao;
+	}
+
+	public void addCandidato(Candidato c){
 		this.candidatos.add(c); //adiciona candidato na lista do partido
 		this.tVotos+=c.getNvotos(); //adiciona os votos do candidato ao total de votos do partido
 	}
 
 	@Override
 	public int compareTo(Partido o) {
+		if(this.tVotos < o.getTVotos())
+			return -1;
+		else if(this.tVotos > o.getTVotos())
 			return 1;
+		
+		return 0;
 	}
 
 	public int getTVotos(){
