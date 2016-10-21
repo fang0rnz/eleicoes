@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class Eleicao {
 	private HashMap<String, Partido> hashPartidos; //como vamos mandar o hashmap direto pra referencia a classe, os metodos podem cuidar do new
@@ -27,7 +28,19 @@ public class Eleicao {
 	}
 	
 	public void amarraColigacoes(){
-		
+		Scanner s;
+		String partido;
+		for (Coligacao colig : coligacoes) {
+			s = new Scanner(colig.getId());
+			s.useDelimiter(" / |\\n");
+			while (s.hasNext()){
+				partido = s.next();
+				System.out.println(partido);
+				//colig.addPartido(hashPartidos.get(partido));
+			}
+			System.out.println("proxima colig");
+			s.close();
+		}
 	}
 	
 	public void addCandidato(Candidato c){

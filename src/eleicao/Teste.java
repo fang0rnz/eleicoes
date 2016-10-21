@@ -11,13 +11,15 @@ public class Teste {
 		Leitor leitor = new Leitor("vitoria2016.csv");
 		HashMap <String, Coligacao> coligs = leitor.leColigacoes();
 		HashMap <String, Partido> parts = leitor.lePartidos();
-		Partido teste1 = new Partido("KASSINO");
-		parts.get("PP").setNome("AEE KASSINAO");
-		parts.put("KASSINO", teste1);
+		//Partido teste1 = new Partido("KASSINO");
+		//parts.get("PP").setNome("AEE KASSINAO");
+		//parts.put("KASSINO", teste1);
 		e.addColigacoes(coligs);
 		e.addPartidos(parts);
+		
 		System.out.println(e.getColigacoes()); //just werks
 		System.out.println(e.getPartidos()); //it just werks
+		e.amarraColigacoes();
 		//leitor.lePartido();
 		Candidato cand1 = new Candidato("Adalberto", 0, 0, false, null); //teste de override
 		Candidato cand2 = new Candidato("Adalberto", 0, 0, false, null); //teste de override

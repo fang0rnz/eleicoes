@@ -28,8 +28,7 @@ public class Coligacao implements Comparable<Coligacao> {
 		else
 		{
 			tVotos = 0;
-			Collection<Partido> partidos = this.partidos.values();
-			for(Partido p : partidos)
+			for(Partido p : partidos.values())
 				tVotos+=p.getTVotos();
 			flagVoto = true;
 			return tVotos;
