@@ -14,7 +14,7 @@ public class Eleicao {
 	boolean partidosOrdenados = false;
 	boolean candidatosOrdenados = false;
 	boolean coligacoesOrdenadas = false;
-	private int vagas;
+	private int vagas; //Número de vagas da eleição. Contada a partir dos candidatos eleitos
 
 	public void addPartidos(HashMap<String, Partido> partidos){ //manda o hashmap direto pra lista
 		this.hashPartidos = partidos;
@@ -58,27 +58,84 @@ public class Eleicao {
 			vagas++;
 	}
 
-	
+	private void ordenarCandidatos(){
+		if(!candidatosOrdenados)
+		{
+			Collections.sort(candidatos);
+			candidatosOrdenados = true;
+		}
+	}
+
+	private String gerarSaida(Candidato c, int posicao){
+		String saida;
+
+		saida = posicao + " - " + c.getNome() + " (" + c.getPartido().getNome() + ", " + c.getNvotos() + " votos)";
+		if(c.getPartido().temColigacao())
+			saida += " - Coligação: " + c.getPartido().getColigacao().getId(); 
+		
+		return saida;
+	}
 
 	public void listarEleitos(){
 		int contador = 1;
-		String saida = "";
 
-		Collections.sort(candidatos);
-		candidatosOrdenados = true;
+		ordenarCandidatos();
 
 		System.out.println("Vereadores eleitos:");
 
 		for(Candidato c : candidatos){
 			if(c.isEleito()){
-				saida = contador + " - " + c.getNome() + " (" + c.getPartido().getNome() + ", " + c.getNvotos() + " votos)";
-				if(c.getPartido().temColigacao())
-					saida += " - Coligação: " + c.getPartido().getColigacao().getId(); 
-				System.out.println(saida);		
+				System.out.println(gerarSaida(c,contador));		
 				contador++;
 			}
 		}
 	}
+
+	public void listarMaisVotados(){
+		int contador = 1;
+
+		ordenarCandidatos();
+
+		System.out.println("Candidatos mais votados (em ordem decrescente de votação e respeitando o número de vagas):");
+		for (Candidato c : candidatos){
+			if(contador<=vagas){
+				System.out.println(gerarSaida(c,contador));		
+				contador++;
+			}
+			else
+				break;
+		}
+	}
+
+	public void listarNaoEleitosMaisVotados(){
+		int contador = 1;
+
+		ordenarCandidatos();
+
+		System.out.println("Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos:");
+		System.out.println("com sua posição no ranking de mais votados)");
+		for(Candidato c : candidatos){
+			if(contador<=vagas && !c.isEleito())
+				System.out.println(gerarSaida(c,contador));
+			contador++;
+		}
+	}
+
+	public void listarEleitosBeneficiados(){
+		int contador = 1;
+
+		ordenarCandidatos();
+
+		System.out.println("Eleitos, que se beneficiaram do sistema proporcional:");
+		System.out.println("com sua posição no ranking de mais votados)");
+		for(Candidato c : candidatos){
+			if(contador>vagas && c.isEleito())
+				System.out.println(gerarSaida(c,contador));
+			contador++;
+		}
+	}
+
+	//Faltando listar Votações nominais de partidos e coligações.
 
 	public int getVagas() {
 		return vagas;
