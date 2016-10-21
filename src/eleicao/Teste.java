@@ -19,7 +19,9 @@ public class Teste {
 		e.amarraColigacoes();
 		System.out.println(e.getColigacoes()); //just werks
 		System.out.println(e.getPartidos()); //it just werks
-		System.out.println(e.getColigacoes().get(6).getPartidos()); //WWWWWeeeerks
+		for (Coligacao c : e.getColigacoes())
+			System.out.println(c.getPartidos()); //werking
+		
 		//leitor.lePartido();
 		Candidato cand1 = new Candidato("Adalberto", 0, 0, false, null); //teste de override
 		Candidato cand2 = new Candidato("Adalberto", 0, 0, false, null); //teste de override
