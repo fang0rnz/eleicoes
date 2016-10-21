@@ -57,13 +57,12 @@ public class Candidato implements Comparable<Candidato>{
 		return nvotos;
 	}
 	
-	//Modificado porque não faz sentido receber um número de votos como parâmetro e somente somar um ao contador de votos
-	public void addNvotos(int nvotos) {
-		this.nvotos += nvotos; //adiciona n votos de uma vez só
+	public void incrementVotos(){
+		nvotos++;
 	}
-	
-	public void addVoto() {
-		this.nvotos++; //adiciona 1 voto
+
+	public void incrementVotos(int votos){
+		nvotos+=votos;
 	}
 
 	@Override

@@ -1,4 +1,5 @@
 package eleicao;
+import java.util.Collection;
 import java.util.HashMap;
 
 public class Coligacao implements Comparable<Coligacao> {
@@ -6,22 +7,32 @@ public class Coligacao implements Comparable<Coligacao> {
 	private String id;
 	private HashMap<String, Partido> partidos = new HashMap<String, Partido>();
 	private int tVotos;
+	private boolean flagVoto = false;
 
 	public Coligacao(String id) {
 		this.id = id;
 	}
 
 	public void addPartido(Partido p){
-		partidos.putIfAbsent(p.getNome(),p); //Adiciona partido à hash de partidos
-		tVotos+=p.getTVotos(); //Adiciona votos totais do partido aos votos totais da coligação
+		if(partidos.putIfAbsent(p.getNome(),p) == null)
+			flagVoto = false; //Caso um novo partido seja adicionado, a flag será false
 	}
 
 	public String getId(){
 		return id;
 	}
 
-	public int getTVotos() {
-		return tVotos;
+	public int getVotos() {
+		if(flagVoto)
+			return tVotos;
+		else
+		{
+			tVotos = 0;
+			Collection<Partido> partidos = this.partidos.values();
+			for(Partido p : partidos)
+				tVotos+=p.getTVotos();
+			return tVotos;
+		}
 	}
 
 	public boolean partidoPresente(String partido){
@@ -36,9 +47,9 @@ public class Coligacao implements Comparable<Coligacao> {
 	}
 
 	public int compareTo(Coligacao c) {
-		if(this.tVotos < c.getTVotos())
+		if(this.tVotos < c.getVotos())
 			return -1;
-		else if(this.tVotos > c.getTVotos())
+		else if(this.tVotos > c.getVotos())
 			return 1;
 		
 		return 0;
