@@ -41,7 +41,10 @@ public class Partido implements Comparable<Partido>{
 	}
 
 	public boolean temColigacao() {
-		return coligacao!=null;
+		if (coligacao.getPartidos().size() == 1)
+			return false;
+		return true;
+				
 	}
 
 	public void setColigacao(Coligacao c) {

@@ -21,8 +21,12 @@ public class Teste {
 		System.out.println(e.getPartidos()); //it just werks
 		for (Coligacao c : e.getColigacoes())
 			System.out.println(c.getPartidos()); //werking
+		int counter = 1;
+		for (Candidato c : leitor.leCandidatos()) {
+			System.out.println("" + counter + c);
+			counter++;
+		}
 		
-		System.out.println(leitor.leCandidatos());
 	
 		//System.out.println(cand1.equals(cand2));
 		//File file = new File("/home/lucas/workspace/trabalhoprog3/src/eleicao/vitoria2016.csv");

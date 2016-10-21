@@ -79,7 +79,9 @@ public class Candidato implements Comparable<Candidato>{
 	
 	@Override
 	public String toString(){
-		return (seq + " - " + nome + " ("+partido+", " + nvotos + " votos) - Coligação: " + partido.getColigacao());
+		if (partido.temColigacao())
+			return (" - " + nome + " ("+partido+", " + nvotos + " votos) - Coligação: " + partido.getColigacao());
+		return (" - " + nome + " ("+partido+", " + nvotos + " votos)");
 	}
 
 	public int getSeq() {

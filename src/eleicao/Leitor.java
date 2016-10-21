@@ -15,7 +15,6 @@ import java.util.Scanner;
 public class Leitor {
 	File file = null;
 	private HashMap<String, Partido> partidos;
-	private HashMap<String, Coligacao> coligacoes;
 	
 	public Leitor (String path) {
 		file = new File(path);
@@ -77,7 +76,6 @@ public class Leitor {
 				e.printStackTrace();
 			}
 			sc.next();
-			System.out.println(seq);
 			candidato = new Candidato(eleito, seq, numero, nome, nVotos, partido);
 			setCandidatos.add(candidato);
 			//System.out.println(eleito + " " + seq + " " + numero + " " + nome + " "
