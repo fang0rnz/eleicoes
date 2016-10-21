@@ -9,8 +9,13 @@ import java.util.LinkedList;
 import java.util.Locale;
 import java.util.Scanner;
 
+
+
+
 public class Leitor {
 	File file = null;
+	private HashMap<String, Partido> partidos;
+	private HashMap<String, Coligacao> coligacoes;
 	
 	public Leitor (String path) {
 		file = new File(path);
@@ -33,33 +38,38 @@ public class Leitor {
 		sc.useDelimiter(";|\\n");
 		NumberFormat nf = NumberFormat.getInstance(Locale.forLanguageTag("pt-br"));
 		String temp;
+		Candidato candidato;
 		boolean eleito = false;
 		int seq;
 		int numero;
-		int nVotos;
+		int nVotos = 0;
 		String nome;
-		String partido;
+		String nomepartido;
+		Partido partido;
 		LinkedList<Candidato> setCandidatos = new LinkedList<Candidato>();
 		
 		while (sc.hasNext()){
 			temp = sc.next();
-				if (temp.charAt(0) == '*' || temp.charAt(0) == '#'){
+				if ((temp.charAt(0) == '*') || (temp.charAt(0) == '#')){
 					if (temp.charAt(0) == '*')
 						eleito = true;
 					seq = Integer.parseInt(temp.substring(1));
 				}
-				else
+				else{
 					seq = Integer.parseInt(temp);
+					eleito = false;
+				}
 			
 			numero = Integer.parseInt(sc.next());
 			nome = sc.next();
 			temp = sc.next();
 			if (temp.contains("-")){ // Partido com coligação 
 				int indice = temp.indexOf("-") - 1; //acha o indice do caracter que separa coligação
-				partido = temp.substring(0, indice); //retorna a substring do início até o índice
+				nomepartido = temp.substring(0, indice); //retorna a substring do início até o índice
 			}
 			else
-				partido = temp;
+				nomepartido = temp;
+			partido = partidos.get(nomepartido);
 			temp = sc.next();
 			try {
 				nVotos = (nf.parse(temp)).intValue();
@@ -67,7 +77,11 @@ public class Leitor {
 				e.printStackTrace();
 			}
 			sc.next();
-			System.out.println(eleito + " " + seq + " " + );
+			
+			candidato = new Candidato(eleito, seq, numero, nome, nVotos, partido);
+			setCandidatos.add(candidato);
+			System.out.println(eleito + " " + seq + " " + numero + " " + nome + " "
+					+ partido + " " + nVotos);
 		}
 		//System.out.println(setPartidos);
 		sc.close();
@@ -106,6 +120,8 @@ public class Leitor {
 		}
 		//System.out.println(setPartidos);
 		sc.close();
+		
+		this.partidos = setPartidos;
 		return setPartidos;
 	}
 	
@@ -132,6 +148,7 @@ public class Leitor {
 		}
 		//System.out.println(setColigacoes);
 		sc.close();
+		this.coligacoes = setColigacoes;
 		return setColigacoes;
 	}
 }

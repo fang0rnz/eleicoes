@@ -22,10 +22,9 @@ public class Teste {
 		for (Coligacao c : e.getColigacoes())
 			System.out.println(c.getPartidos()); //werking
 		
-		//leitor.lePartido();
-		Candidato cand1 = new Candidato("Adalberto", 0, 0, false, null); //teste de override
-		Candidato cand2 = new Candidato("Adalberto", 0, 0, false, null); //teste de override
-		System.out.println(cand1.equals(cand2));
+		leitor.leCandidatos();
+	
+		//System.out.println(cand1.equals(cand2));
 		//File file = new File("/home/lucas/workspace/trabalhoprog3/src/eleicao/vitoria2016.csv");
 		//Scanner sc = new Scanner(file);
 		//sc.useDelimiter(";|\\n");
