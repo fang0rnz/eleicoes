@@ -13,7 +13,7 @@ public class Coligacao implements Comparable<Coligacao> {
 		this.id = id;
 	}
 
-	public void addPartido(Partido p){
+	public void addPartido(Partido p){ // ??? 
 		if(partidos.putIfAbsent(p.getNome(),p) == null)
 			flagVoto = false; //Caso um novo partido seja adicionado, a flag será false
 	}
