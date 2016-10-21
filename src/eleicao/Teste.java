@@ -22,7 +22,7 @@ public class Teste {
 		for (Coligacao c : e.getColigacoes())
 			System.out.println(c.getPartidos()); //werking
 		
-		leitor.leCandidatos();
+		System.out.println(leitor.leCandidatos());
 	
 		//System.out.println(cand1.equals(cand2));
 		//File file = new File("/home/lucas/workspace/trabalhoprog3/src/eleicao/vitoria2016.csv");

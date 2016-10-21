@@ -38,12 +38,14 @@ public class Eleicao {
 				nomepartido = s.next();
 				if (hashPartidos.containsKey(nomepartido)){
 					partido = this.hashPartidos.get(nomepartido);
+					partido.setColigacao(colig);
 					colig.addPartido(partido);
 				}
 				else {
 					partido = new Partido(nomepartido);
 					hashPartidos.put(nomepartido, partido);
 					partidos.add(partido);
+					partido.setColigacao(colig);
 					colig.addPartido(partido);
 				}	
 				

@@ -12,6 +12,7 @@ public class Candidato implements Comparable<Candidato>{
 	//problema: como receber uma String com o nome do partido e settar o partido com o tipo correto
 	//por que não receber o objeto partido correspondente? A classe eleição pode cuidar disso.
 	public Candidato(boolean eleito, int seq, int numero,String nome, int nvotos, Partido partido) {
+		this.seq = seq;
 		this.nome = nome;
 		this.numero = numero;
 		this.nvotos = nvotos;
@@ -23,6 +24,7 @@ public class Candidato implements Comparable<Candidato>{
 	public boolean equals(Object o){
 		return this.nome.equals(((Candidato)o).nome);
 	}
+	
 	
 	//setters e getters
 	public boolean isEleito() {
@@ -73,6 +75,11 @@ public class Candidato implements Comparable<Candidato>{
 		else if(this.nvotos > c.getNvotos())
 			return 1;
 		return 0;
+	}
+	
+	@Override
+	public String toString(){
+		return (seq + " - " + nome + " ("+partido+", " + nvotos + " votos) - Coligação: " + partido.getColigacao());
 	}
 
 	public int getSeq() {

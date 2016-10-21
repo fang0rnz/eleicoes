@@ -77,15 +77,15 @@ public class Leitor {
 				e.printStackTrace();
 			}
 			sc.next();
-			
+			System.out.println(seq);
 			candidato = new Candidato(eleito, seq, numero, nome, nVotos, partido);
 			setCandidatos.add(candidato);
-			System.out.println(eleito + " " + seq + " " + numero + " " + nome + " "
-					+ partido + " " + nVotos);
+			//System.out.println(eleito + " " + seq + " " + numero + " " + nome + " "
+				//	+ partido + " " + nVotos);
 		}
 		//System.out.println(setPartidos);
 		sc.close();
-		return null;
+		return setCandidatos;
 	}
 
 	
