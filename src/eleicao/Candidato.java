@@ -2,6 +2,7 @@ package eleicao;
 
 public class Candidato implements Comparable<Candidato>{
 	private String nome;
+	private int seq;
 	private int numero;
 	private int nvotos = 0;
 	private boolean eleito = false;
@@ -10,7 +11,7 @@ public class Candidato implements Comparable<Candidato>{
 	//construtor
 	//problema: como receber uma String com o nome do partido e settar o partido com o tipo correto
 	//por que não receber o objeto partido correspondente? A classe eleição pode cuidar disso.
-	public Candidato(String nome, int numero, int nvotos, boolean eleito, Partido partido) {
+	public Candidato(boolean eleito, int seq, int numero,String nome, int nvotos, Partido partido) {
 		this.nome = nome;
 		this.numero = numero;
 		this.nvotos = nvotos;
@@ -72,5 +73,13 @@ public class Candidato implements Comparable<Candidato>{
 		else if(this.nvotos > c.getNvotos())
 			return 1;
 		return 0;
+	}
+
+	public int getSeq() {
+		return seq;
+	}
+
+	public void setSeq(int seq) {
+		this.seq = seq;
 	}
 }
