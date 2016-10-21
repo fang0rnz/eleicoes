@@ -14,8 +14,9 @@ public class Teste {
 		//Partido teste1 = new Partido("KASSINO");
 		//parts.get("PP").setNome("AEE KASSINAO");
 		//parts.put("KASSINO", teste1);
-		e.addColigacoes(coligs);
 		e.addPartidos(parts);
+		e.addColigacoes(coligs);
+		
 		
 		System.out.println(e.getColigacoes()); //just werks
 		System.out.println(e.getPartidos()); //it just werks
