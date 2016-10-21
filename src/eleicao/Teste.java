@@ -16,12 +16,10 @@ public class Teste {
 		//parts.put("KASSINO", teste1);
 		e.addPartidos(parts);
 		e.addColigacoes(coligs);
-		
-		
+		e.amarraColigacoes();
 		System.out.println(e.getColigacoes()); //just werks
 		System.out.println(e.getPartidos()); //it just werks
-		e.amarraColigacoes();
-		System.out.println(e.getColigacoes().get(5).getPartidos()); //WWWWWeeeerks
+		System.out.println(e.getColigacoes().get(6).getPartidos()); //WWWWWeeeerks
 		//leitor.lePartido();
 		Candidato cand1 = new Candidato("Adalberto", 0, 0, false, null); //teste de override
 		Candidato cand2 = new Candidato("Adalberto", 0, 0, false, null); //teste de override

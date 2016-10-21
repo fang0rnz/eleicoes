@@ -1,6 +1,5 @@
 package eleicao;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -41,6 +40,13 @@ public class Eleicao {
 					partido = this.hashPartidos.get(nomepartido);
 					colig.addPartido(partido);
 				}
+				else {
+					partido = new Partido(nomepartido);
+					hashPartidos.put(nomepartido, partido);
+					partidos.add(partido);
+					colig.addPartido(partido);
+				}	
+				
 			}
 			s.close();
 		}
