@@ -27,6 +27,7 @@ public class Eleicao {
 		this.coligacoes = new LinkedList<Coligacao>(coligacoes.values());
 	}
 	
+	/*Adiciona os partidos certos dentro de cada coligação verificando a string nome da coligação e usando um scanner com delimitador oportuno.*/
 	public void amarraColigacoes(){
 		Scanner s;
 		String nomepartido;
@@ -36,11 +37,11 @@ public class Eleicao {
 			s.useDelimiter(" / |\\n");
 			while (s.hasNext()){
 				nomepartido = s.next();
-				partido = this.hashPartidos.get(nomepartido);
-				System.out.println(partido.getNome());
-				colig.addPartido(partido);
+				if (hashPartidos.containsKey(nomepartido)){
+					partido = this.hashPartidos.get(nomepartido);
+					colig.addPartido(partido);
+				}
 			}
-			System.out.println("proxima colig");
 			s.close();
 		}
 	}

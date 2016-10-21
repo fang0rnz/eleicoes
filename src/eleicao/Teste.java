@@ -21,6 +21,7 @@ public class Teste {
 		System.out.println(e.getColigacoes()); //just werks
 		System.out.println(e.getPartidos()); //it just werks
 		e.amarraColigacoes();
+		System.out.println(e.getColigacoes().get(5).getPartidos()); //WWWWWeeeerks
 		//leitor.lePartido();
 		Candidato cand1 = new Candidato("Adalberto", 0, 0, false, null); //teste de override
 		Candidato cand2 = new Candidato("Adalberto", 0, 0, false, null); //teste de override
