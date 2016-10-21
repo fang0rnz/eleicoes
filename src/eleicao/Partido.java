@@ -70,7 +70,7 @@ public class Partido implements Comparable<Partido>{
      */
 	public int getVotos() {
         int sum = 0;
-        for ( Candidato c : getCandidatos()) {
+        for ( Candidato c : candidatos) {
             sum += c.getNvotos();
         }
 
