@@ -1,5 +1,4 @@
 package eleicao;
-import java.util.Collection;
 import java.util.HashMap;
 
 public class Coligacao implements Comparable<Coligacao> {

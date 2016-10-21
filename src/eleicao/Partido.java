@@ -57,9 +57,9 @@ public class Partido implements Comparable<Partido>{
      * O método aceita um número indefinido de candidatos como argumento.
      * @param canditatos Canditatos a serem inseridos.
      */
-	public void addCandidato(Candidato ... canditatos){
-		for (Candidato c : canditatos) {
-            if (!getCandidatos().contains(c)) //adiciona candidato na lista do partido
+	public void addCandidato(Candidato cand){
+		for (Candidato c : candidatos) {
+            if (!getCandidatos().contains(cand)) //adiciona candidato na lista do partido
                 getCandidatos().add(c);
 		}
 	}
@@ -70,7 +70,7 @@ public class Partido implements Comparable<Partido>{
      */
 	public int getVotos() {
         int sum = 0;
-        for ( Candidato c : candidatos) {
+        for (Candidato c : candidatos) {
             sum += c.getNvotos();
         }
 

@@ -31,7 +31,7 @@ public class Eleicao {
 		Scanner s;
 		String nomepartido;
 		Partido partido;
-		for (Coligacao colig : coligacoes) {
+		for (Coligacao colig : hashColigacoes.values()) {
 			s = new Scanner(colig.getId());
 			s.useDelimiter(" / |\\n");
 			while (s.hasNext()){
