@@ -29,14 +29,16 @@ public class Eleicao {
 	
 	public void amarraColigacoes(){
 		Scanner s;
-		String partido;
+		String nomepartido;
+		Partido partido;
 		for (Coligacao colig : coligacoes) {
 			s = new Scanner(colig.getId());
 			s.useDelimiter(" / |\\n");
 			while (s.hasNext()){
-				partido = s.next();
-				System.out.println(partido);
-				//colig.addPartido(hashPartidos.get(partido));
+				nomepartido = s.next();
+				partido = this.hashPartidos.get(nomepartido);
+				System.out.println(partido.getNome());
+				colig.addPartido(partido);
 			}
 			System.out.println("proxima colig");
 			s.close();

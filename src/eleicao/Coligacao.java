@@ -14,8 +14,7 @@ public class Coligacao implements Comparable<Coligacao> {
 	}
 
 	public void addPartido(Partido p){ // ??? 
-		if(partidos.putIfAbsent(p.getNome(),p) == null)
-			flagVoto = false; //Caso um novo partido seja adicionado, a flag será false
+		partidos.put(p.getNome(), p);
 	}
 
 	public String getId(){
