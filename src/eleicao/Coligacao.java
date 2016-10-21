@@ -16,8 +16,11 @@ public class Coligacao implements Comparable<Coligacao> {
 		return partidos;
 	}
 
-	public void addPartido(Partido p){ // ??? 
-		partidos.put(p.getNome(), p);
+	public void addPartido(Partido p){
+		if(partidos.putIfAbsent(p.getNome(), p) == null)	//Adiciona um partido na hash de partidos se ele ainda não estiver dentro dela
+			flagVoto = false;                               //retornando null caso o partido tenha sido adicionado. A linha de dentro do if
+															//garante que a flag de votos, usada para saber se a soma de votos já foi computada,
+															//seja false caso um novo partido seja adicionado.
 	}
 
 	public String getId(){
@@ -25,14 +28,14 @@ public class Coligacao implements Comparable<Coligacao> {
 	}
 
 	public int getVotos() {
-		if(flagVoto)
+		if(flagVoto) //Caso a flag seja true, retornar o numero de votos salvos
 			return tVotos;
-		else
+		else //Caso contrário, recalcular os votos da coligação
 		{
 			tVotos = 0;
 			for(Partido p : partidos.values())
 				tVotos+=p.getVotos();
-			flagVoto = true;
+			flagVoto = true; //Coloca a flag como true depois que o cálculo foi salvo
 			return tVotos;
 		}
 	}
