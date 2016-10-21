@@ -32,7 +32,7 @@ public class Coligacao implements Comparable<Coligacao> {
 		{
 			tVotos = 0;
 			for(Partido p : partidos.values())
-				tVotos+=p.getTVotos();
+				tVotos+=p.getVotos();
 			flagVoto = true;
 			return tVotos;
 		}
