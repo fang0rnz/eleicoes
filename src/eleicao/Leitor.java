@@ -146,7 +146,6 @@ public class Leitor {
 		}
 		//System.out.println(setColigacoes);
 		sc.close();
-		this.coligacoes = setColigacoes;
 		return setColigacoes;
 	}
 }

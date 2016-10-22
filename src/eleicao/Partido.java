@@ -61,10 +61,8 @@ public class Partido implements Comparable<Partido>{
      * @param canditatos Canditatos a serem inseridos.
      */
 	public void addCandidato(Candidato cand){
-		for (Candidato c : candidatos) {
             if (!getCandidatos().contains(cand)) //adiciona candidato na lista do partido
-                getCandidatos().add(c);
-		}
+            	getCandidatos().add(cand);
 	}
 
     /**
