@@ -77,7 +77,9 @@ public class Leitor {
 			}
 			sc.next();
 			candidato = new Candidato(eleito, seq, numero, nome, nVotos, partido);
+			partido.addCandidato(candidato);
 			setCandidatos.add(candidato);
+			
 			//System.out.println(eleito + " " + seq + " " + numero + " " + nome + " "
 				//	+ partido + " " + nVotos);
 		}
