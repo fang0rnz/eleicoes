@@ -5,6 +5,10 @@ public class Partido implements Comparable<Partido>{
 	private String nome;
 	private LinkedList<Candidato> candidatos = new LinkedList<Candidato>();
 	private Coligacao coligacao = null;
+	private int nEleitos;
+	private boolean flagEleitos = false;
+	private int votos;
+	private boolean flagVotos = false;
 
 	public Partido (String nome){
 		this.nome = nome;
@@ -12,7 +16,7 @@ public class Partido implements Comparable<Partido>{
 
 	@Override
 	public String toString(){
-		return this.nome;
+		return(" - " + nome + ", " + getVotos() + " votos, " + getEleitos() + " candidatos eleitos");
 	}
 	@Override
 	public boolean equals(Object o){
@@ -26,6 +30,20 @@ public class Partido implements Comparable<Partido>{
 				return ca;
 		}
 		return null;
+	}
+
+	public int getEleitos(){
+		int contador = 0;
+
+		if(flagEleitos)
+			return nEleitos;
+
+		for(Candidato c : candidatos)
+			if(c.isEleito())
+				contador++;
+		nEleitos = contador;
+		flagEleitos = true;
+		return contador;
 	}
 
 	//Getter de nome do partido
@@ -61,8 +79,10 @@ public class Partido implements Comparable<Partido>{
      * @param canditatos Canditatos a serem inseridos.
      */
 	public void addCandidato(Candidato cand){
-            if (!getCandidatos().contains(cand)) //adiciona candidato na lista do partido
+            if (!getCandidatos().contains(cand)){ //adiciona candidato na lista do partido
             	getCandidatos().add(cand);
+				flagVotos = false;
+			}
 	}
 
     /**
@@ -70,10 +90,16 @@ public class Partido implements Comparable<Partido>{
      * @return A soma dos votos dos candidatos do partido.
      */
 	public int getVotos() {
+		if(flagVotos)
+			return votos;
+
         int sum = 0;
         for (Candidato c : candidatos) {
             sum += c.getNvotos();
         }
+
+		votos = sum;
+		flagVotos = true;
 
         return sum;
     }
@@ -85,9 +111,16 @@ public class Partido implements Comparable<Partido>{
 
 		if(votos < comp)
 			return -1;
-		if(votos > comp)
+		else if(votos > comp)
 			return 1;
-
+		else{
+			int eleitos = getEleitos();
+			int compE = o.getEleitos();
+			if(eleitos < compE)
+				return -1;
+			else if(eleitos > compE)
+				return 1;
+		}
 		return 0;
 	}
 }

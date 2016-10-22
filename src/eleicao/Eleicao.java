@@ -68,14 +68,18 @@ public class Eleicao {
 		}
 	}
 
-	private String gerarSaida(Candidato c, int posicao){
-		String saida;
+	private void ordenarColigacoes(){
+		if(!coligacoesOrdenadas){
+			Collections.sort(coligacoes);
+			coligacoesOrdenadas = true;
+		}
+	}
 
-		saida = posicao + " - " + c.getNome() + " (" + c.getPartido().getNome() + ", " + c.getNvotos() + " votos)";
-		if(c.getPartido().temColigacao())
-			saida += " - Coligação: " + c.getPartido().getColigacao().getId(); 
-		
-		return saida;
+	private void ordenarPartidos(){
+		if(!partidosOrdenados){
+			Collections.sort(partidos);
+			partidosOrdenados = true;
+		}
 	}
 
 	public void listarEleitos(){
@@ -87,9 +91,11 @@ public class Eleicao {
 
 		for(Candidato c : candidatos){
 			if(c.isEleito()){
-				System.out.println(gerarSaida(c,contador));		
+				System.out.println("" + contador + c);
 				contador++;
 			}
+			if(contador >= vagas)
+				break;
 		}
 	}
 
@@ -101,7 +107,7 @@ public class Eleicao {
 		System.out.println("Candidatos mais votados (em ordem decrescente de votação e respeitando o número de vagas):");
 		for (Candidato c : candidatos){
 			if(contador<=vagas){
-				System.out.println(gerarSaida(c,contador));		
+				System.out.println("" + contador + c);
 				contador++;
 			}
 			else
@@ -115,11 +121,13 @@ public class Eleicao {
 		ordenarCandidatos();
 
 		System.out.println("Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos:");
-		System.out.println("com sua posição no ranking de mais votados)");
+		System.out.println("(com sua posição no ranking de mais votados)");
 		for(Candidato c : candidatos){
-			if(contador<=vagas && !c.isEleito())
-				System.out.println(gerarSaida(c,contador));
+			if(!c.isEleito())
+				System.out.println("" + contador + c);
 			contador++;
+			if(contador > vagas)
+				break;
 		}
 	}
 
@@ -129,15 +137,35 @@ public class Eleicao {
 		ordenarCandidatos();
 
 		System.out.println("Eleitos, que se beneficiaram do sistema proporcional:");
-		System.out.println("com sua posição no ranking de mais votados)");
+		System.out.println("(com sua posição no ranking de mais votados)");
 		for(Candidato c : candidatos){
 			if(contador>vagas && c.isEleito())
-				System.out.println(gerarSaida(c,contador));
+				System.out.println("" + contador + c);
 			contador++;
 		}
 	}
 
-	//Faltando listar Votações nominais de partidos e coligações.
+	public void listarResultadoColigacoes(){
+		int contador = 1;
+
+		ordenarColigacoes();
+
+		for(Coligacao c : coligacoes){
+			System.out.println("" + contador + c);
+			contador++;
+		}
+	}
+
+	public void listarResultadoPartidos(){
+		int contador = 1;
+
+		ordenarPartidos();
+
+		for(Partido p : partidos){
+			System.out.println("" + contador + p);
+		}
+		
+	}
 
 	public int getVagas() {
 		return vagas;

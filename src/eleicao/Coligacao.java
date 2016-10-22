@@ -5,8 +5,6 @@ public class Coligacao implements Comparable<Coligacao> {
 	//uma ligação entre esta classe e a classe partido.
 	private String id;
 	private HashMap<String, Partido> partidos = new HashMap<String, Partido>();
-	private int tVotos;
-	private boolean flagVoto = false;
 
 	public Coligacao(String id) {
 		this.id = id;
@@ -17,10 +15,7 @@ public class Coligacao implements Comparable<Coligacao> {
 	}
 
 	public void addPartido(Partido p){
-		if(partidos.putIfAbsent(p.getNome(), p) == null)	//Adiciona um partido na hash de partidos se ele ainda não estiver dentro dela
-			flagVoto = false;                               //retornando null caso o partido tenha sido adicionado. A linha de dentro do if
-															//garante que a flag de votos, usada para saber se a soma de votos já foi computada,
-															//seja false caso um novo partido seja adicionado.
+		partidos.putIfAbsent(p.getNome(), p);
 	}
 
 	public String getId(){
@@ -28,16 +23,20 @@ public class Coligacao implements Comparable<Coligacao> {
 	}
 
 	public int getVotos() {
-		if(flagVoto) //Caso a flag seja true, retornar o numero de votos salvos
-			return tVotos;
-		else //Caso contrário, recalcular os votos da coligação
-		{
-			tVotos = 0;
-			for(Partido p : partidos.values())
-				tVotos+=p.getVotos();
-			flagVoto = true; //Coloca a flag como true depois que o cálculo foi salvo
-			return tVotos;
-		}
+		int contador = 0;
+
+		for(Partido p : partidos.values())
+			contador += p.getVotos();
+		return contador;
+	}
+
+	public int getEleitos(){
+		int contador = 0;
+
+		for(Partido p : partidos.values())
+			contador += p.getEleitos();
+
+		return contador;
 	}
 
 	public boolean partidoPresente(String partido){
@@ -48,15 +47,24 @@ public class Coligacao implements Comparable<Coligacao> {
 
 	@Override
 	public String toString(){
-		return id;
+		return (" - Coligação: " + id + ", " + getVotos() + " votos, " + getEleitos() + " candidatos eleitos");
 	}
 
 	public int compareTo(Coligacao c) {
-		if(this.tVotos < c.getVotos())
+		int votos = getVotos();
+		int comp = c.getVotos();
+		if(votos < comp)
 			return -1;
-		else if(this.tVotos > c.getVotos())
+		else if(votos > comp)
 			return 1;
-		
+		else{
+			int eleitos = getEleitos();
+			int compE = c.getEleitos();
+			if(eleitos > compE)
+				return 1;
+			else if(eleitos < compE)
+				return -1;
+		}
 		return 0;
 	}
 }
