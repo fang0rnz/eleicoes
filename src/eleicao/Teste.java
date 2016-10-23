@@ -19,8 +19,8 @@ public class Teste {
 		e.amarraColigacoes();
 		//System.out.println(e.getColigacoes()); //just werks
 		//System.out.println(e.getPartidos()); //it just werks
-		for (Coligacao c : e.getColigacoes())
-			System.out.println(c.getPartidos()); //werking
+		//for (Coligacao c : e.getColigacoes())
+		//	System.out.println(c.getPartidos()); //werking
 		int counter = 1;
 		for (Candidato c : leitor.leCandidatos()) {
 			System.out.println("" + counter + c);

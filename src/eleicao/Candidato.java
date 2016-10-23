@@ -77,11 +77,13 @@ public class Candidato implements Comparable<Candidato>{
 		return 0;
 	}
 	
+	/*alterei aqui pra imprimir os candidatos de 
+	forma correta. alterar o tostring de partido e coligacao pros casos especificos maybe?*/
 	@Override
 	public String toString(){
 		if (partido.temColigacao())
-			return (" - " + nome + " ("+partido+", " + nvotos + " votos) - Coligação: " + partido.getColigacao());
-		return (" - " + nome + " ("+partido+", " + nvotos + " votos)");
+			return (" - " + nome + " ("+partido.getNome()+", " + nvotos + " votos) - Coligação: " + partido.getColigacao().getId());
+		return (" - " + nome + " ("+partido.getNome()+", " + nvotos + " votos)"); 
 	}
 
 	public int getSeq() {
