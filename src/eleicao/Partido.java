@@ -34,10 +34,6 @@ public class Partido implements Comparable<Partido>{
 
 	public int getEleitos(){
 		int contador = 0;
-
-		if(flagEleitos)
-			return nEleitos;
-
 		for(Candidato c : candidatos)
 			if(c.isEleito())
 				contador++;
@@ -90,8 +86,6 @@ public class Partido implements Comparable<Partido>{
      * @return A soma dos votos dos candidatos do partido.
      */
 	public int getVotos() {
-		if(flagVotos)
-			return votos;
 
         int sum = 0;
         for (Candidato c : candidatos) {
