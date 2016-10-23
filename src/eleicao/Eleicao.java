@@ -54,10 +54,11 @@ public class Eleicao {
 		}
 	}
 	
-	public void addCandidato(Candidato c){
-		candidatos.add(c);
-		if(c.isEleito())
-			vagas++;
+	public void addCandidatos(LinkedList<Candidato> candidatos){
+		this.candidatos = candidatos;
+		for(Candidato c : candidatos)
+			if(c.isEleito())
+				vagas++;
 	}
 
 	private void ordenarCandidatos(){
@@ -82,6 +83,11 @@ public class Eleicao {
 		}
 	}
 
+	public void mostrarNVagas(){
+		System.out.println("Número de vagas: " + vagas);
+		System.out.println();
+	}
+
 	public void listarEleitos(){
 		int contador = 1;
 
@@ -94,9 +100,10 @@ public class Eleicao {
 				System.out.println("" + contador + c);
 				contador++;
 			}
-			if(contador >= vagas)
+			if(contador > vagas)
 				break;
 		}
+		System.out.println();
 	}
 
 	public void listarMaisVotados(){
@@ -113,6 +120,7 @@ public class Eleicao {
 			else
 				break;
 		}
+		System.out.println();
 	}
 
 	public void listarNaoEleitosMaisVotados(){
@@ -129,6 +137,7 @@ public class Eleicao {
 			if(contador > vagas)
 				break;
 		}
+		System.out.println();
 	}
 
 	public void listarEleitosBeneficiados(){
@@ -143,6 +152,7 @@ public class Eleicao {
 				System.out.println("" + contador + c);
 			contador++;
 		}
+		System.out.println();
 	}
 
 	public void listarResultadoColigacoes(){
@@ -154,6 +164,7 @@ public class Eleicao {
 			System.out.println("" + contador + c);
 			contador++;
 		}
+		System.out.println();
 	}
 
 	public void listarResultadoPartidos(){
@@ -163,8 +174,18 @@ public class Eleicao {
 
 		for(Partido p : partidos){
 			System.out.println("" + contador + p);
+			contador++;
 		}
+		System.out.println();
 		
+	}
+
+	public void mostrarTotalVotos(){
+		int contador = 0;
+		for(Partido p : partidos)
+			contador += p.getVotos();
+		System.out.println("Total de votos nominais: " + contador);
+		System.out.println();
 	}
 
 	public int getVagas() {

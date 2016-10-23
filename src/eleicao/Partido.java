@@ -104,16 +104,16 @@ public class Partido implements Comparable<Partido>{
 		int comp = o.getVotos();
 
 		if(votos < comp)
-			return -1;
-		else if(votos > comp)
 			return 1;
+		else if(votos > comp)
+			return -1;
 		else{
 			int eleitos = getEleitos();
 			int compE = o.getEleitos();
 			if(eleitos < compE)
-				return -1;
-			else if(eleitos > compE)
 				return 1;
+			else if(eleitos > compE)
+				return -1;
 		}
 		return 0;
 	}

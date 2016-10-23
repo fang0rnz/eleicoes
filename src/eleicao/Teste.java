@@ -2,6 +2,7 @@ package eleicao;
 
 import java.io.FileNotFoundException;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 public class Teste {
 
@@ -11,21 +12,32 @@ public class Teste {
 		Leitor leitor = new Leitor("vitoria2016.csv");
 		HashMap <String, Coligacao> coligs = leitor.leColigacoes();
 		HashMap <String, Partido> parts = leitor.lePartidos();
+		LinkedList <Candidato> cands = leitor.leCandidatos();
 		//Partido teste1 = new Partido("KASSINO");
 		//parts.get("PP").setNome("AEE KASSINAO");
 		//parts.put("KASSINO", teste1);
 		e.addPartidos(parts);
 		e.addColigacoes(coligs);
+		e.addCandidatos(cands);
 		e.amarraColigacoes();
 		//System.out.println(e.getColigacoes()); //just werks
 		//System.out.println(e.getPartidos()); //it just werks
 		//for (Coligacao c : e.getColigacoes())
 		//	System.out.println(c.getPartidos()); //werking
-		int counter = 1;
-		for (Candidato c : leitor.leCandidatos()) {
-			System.out.println("" + counter + c);
-			counter++;
-		}
+//		int counter = 1;
+//		for (Candidato c : leitor.leCandidatos()) {
+//			System.out.println("" + counter + c);
+//			counter++;
+//		}
+
+		e.mostrarNVagas();
+		e.listarEleitos();
+		e.listarMaisVotados();
+		e.listarNaoEleitosMaisVotados();
+		e.listarEleitosBeneficiados();
+		e.listarResultadoColigacoes();
+		e.listarResultadoPartidos();
+		e.mostrarTotalVotos();
 	
 		//System.out.println(cand1.equals(cand2));
 		//File file = new File("/home/lucas/workspace/trabalhoprog3/src/eleicao/vitoria2016.csv");

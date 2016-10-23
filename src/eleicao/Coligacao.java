@@ -54,16 +54,16 @@ public class Coligacao implements Comparable<Coligacao> {
 		int votos = getVotos();
 		int comp = c.getVotos();
 		if(votos < comp)
-			return -1;
-		else if(votos > comp)
 			return 1;
+		else if(votos > comp)
+			return -1;
 		else{
 			int eleitos = getEleitos();
 			int compE = c.getEleitos();
 			if(eleitos > compE)
-				return 1;
-			else if(eleitos < compE)
 				return -1;
+			else if(eleitos < compE)
+				return 1;
 		}
 		return 0;
 	}

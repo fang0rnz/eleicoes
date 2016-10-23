@@ -71,9 +71,9 @@ public class Candidato implements Comparable<Candidato>{
 	@Override
 	public int compareTo(Candidato c){
 		if(this.nvotos < c.getNvotos())
-			return -1;
-		else if(this.nvotos > c.getNvotos())
 			return 1;
+		else if(this.nvotos > c.getNvotos())
+			return -1;
 		return 0;
 	}
 	
