@@ -15,14 +15,14 @@ import java.util.Scanner;
 public class Leitor {
 	File file = null;
 	private HashMap<String, Partido> partidos;
-	
+
 	public Leitor (String path) {
 		file = new File(path);
 	}
-	
+
 	private Scanner getScanner(){
 		Scanner sc = null;
-		
+
 		try {
 			sc = new Scanner(file);
 		} catch (FileNotFoundException e) {
@@ -30,7 +30,7 @@ public class Leitor {
 		}
 		return sc;
 	}
-	
+
 	public LinkedList<Candidato> leCandidatos() {
 		Scanner sc = getScanner();
 		sc.nextLine();
@@ -46,19 +46,19 @@ public class Leitor {
 		String nomepartido;
 		Partido partido;
 		LinkedList<Candidato> setCandidatos = new LinkedList<Candidato>();
-		
+
 		while (sc.hasNext()){
 			temp = sc.next();
-				if ((temp.charAt(0) == '*') || (temp.charAt(0) == '#')){
-					if (temp.charAt(0) == '*')
-						eleito = true;
-					seq = Integer.parseInt(temp.substring(1));
-				}
-				else{
-					seq = Integer.parseInt(temp);
-					eleito = false;
-				}
-			
+			if ((temp.charAt(0) == '*') || (temp.charAt(0) == '#')){
+				if (temp.charAt(0) == '*')
+					eleito = true;
+				seq = Integer.parseInt(temp.substring(1));
+			}
+			else{
+				seq = Integer.parseInt(temp);
+				eleito = false;
+			}
+
 			numero = Integer.parseInt(sc.next());
 			nome = sc.next();
 			temp = sc.next();
@@ -79,19 +79,19 @@ public class Leitor {
 			candidato = new Candidato(eleito, seq, numero, nome, nVotos, partido);
 			partido.addCandidato(candidato);
 			setCandidatos.add(candidato);
-			
+
 			//System.out.println(eleito + " " + seq + " " + numero + " " + nome + " "
-				//	+ partido + " " + nVotos);
+			//	+ partido + " " + nVotos);
 		}
 		//System.out.println(setPartidos);
 		sc.close();
 		return setCandidatos;
 	}
 
-	
-	
-	
-	
+
+
+
+
 	//COMOFAS
 	//Delimitador tem que mudar pra pegar apenas o partido,
 	//mas quando nao existe coligacao o caracter
@@ -106,13 +106,13 @@ public class Leitor {
 		while (sc.hasNext()){
 			sc.next(); sc.next(); sc.next();
 			partido = sc.next();
-			
+
 			if (partido.contains("-")){ // Partido com coligação 
 				indice = partido.indexOf("-") - 1; //acha o indice do caracter que separa coligação
 				//teste
 				partido = partido.substring(0, indice); //retorna a substring do início até o índice
 			}
-			
+
 			//System.out.println(partido);
 			if (!setPartidos.containsKey(partido))
 				setPartidos.put(partido , new Partido(partido));
@@ -120,11 +120,11 @@ public class Leitor {
 		}
 		//System.out.println(setPartidos);
 		sc.close();
-		
+
 		this.partidos = setPartidos;
 		return setPartidos;
 	}
-	
+
 	public HashMap<String, Coligacao> leColigacoes() throws FileNotFoundException{
 		Scanner sc = getScanner();
 		sc.nextLine();
@@ -135,13 +135,13 @@ public class Leitor {
 		while (sc.hasNext()){
 			sc.next(); sc.next(); sc.next();
 			coligacao = sc.next();
-			
+
 			if (coligacao.contains("-")){ // Partido sem coligação 
 				indice = coligacao.indexOf("-")+2; //acha o indice do caracter que separa coligação
 				coligacao = coligacao.substring(indice); //retorna a substring do início até o índice
 			}
-			
-			
+
+
 			if (!setColigacoes.containsKey(coligacao))
 				setColigacoes.put(coligacao , new Coligacao(coligacao));
 			sc.next(); sc.next();

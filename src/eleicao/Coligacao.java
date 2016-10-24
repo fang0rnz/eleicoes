@@ -9,7 +9,7 @@ public class Coligacao implements Comparable<Coligacao> {
 	public Coligacao(String id) {
 		this.id = id;
 	}
-	
+
 	public HashMap<String, Partido> getPartidos(){
 		return partidos;
 	}

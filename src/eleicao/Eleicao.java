@@ -20,12 +20,12 @@ public class Eleicao {
 		this.hashPartidos = partidos;
 		this.partidos = new LinkedList<Partido>(partidos.values());
 	}
-	
+
 	public void addColigacoes(HashMap<String, Coligacao> coligacoes){ //manda o hashmap direto pra lista
 		this.hashColigacoes = coligacoes;
 		this.coligacoes = new LinkedList<Coligacao>(coligacoes.values());
 	}
-	
+
 	/*Adiciona os partidos certos dentro de cada coligação verificando a string nome da coligação e usando um scanner com delimitador oportuno.*/
 	public void amarraColigacoes(){
 		Scanner s;
@@ -48,12 +48,12 @@ public class Eleicao {
 					partido.setColigacao(colig);
 					colig.addPartido(partido);
 				}	
-				
+
 			}
 			s.close();
 		}
 	}
-	
+
 	public void addCandidatos(LinkedList<Candidato> candidatos){
 		this.candidatos = candidatos;
 		for(Candidato c : candidatos)
@@ -90,8 +90,6 @@ public class Eleicao {
 
 	public void listarEleitos(){
 		int contador = 1;
-
-		ordenarCandidatos();
 
 		System.out.println("Vereadores eleitos:");
 
@@ -177,7 +175,7 @@ public class Eleicao {
 			contador++;
 		}
 		System.out.println();
-		
+
 	}
 
 	public void mostrarTotalVotos(){

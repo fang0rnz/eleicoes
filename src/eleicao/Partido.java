@@ -8,7 +8,6 @@ public class Partido implements Comparable<Partido>{
 	private int nEleitos;
 	private boolean flagEleitos = false;
 	private int votos;
-	private boolean flagVotos = false;
 
 	public Partido (String nome){
 		this.nome = nome;
@@ -33,13 +32,15 @@ public class Partido implements Comparable<Partido>{
 	}
 
 	public int getEleitos(){
-		int contador = 0;
-		for(Candidato c : candidatos)
-			if(c.isEleito())
-				contador++;
-		nEleitos = contador;
-		flagEleitos = true;
-		return contador;
+		if (!flagEleitos){
+			int contador = 0;
+			for(Candidato c : candidatos)
+				if(c.isEleito())
+					contador++;
+			nEleitos = contador;
+			flagEleitos = true;
+		}
+		return nEleitos;
 	}
 
 	//Getter de nome do partido
@@ -58,7 +59,7 @@ public class Partido implements Comparable<Partido>{
 		if (coligacao.getPartidos().size() == 1)
 			return false;
 		return true;
-				
+
 	}
 
 	public void setColigacao(Coligacao c) {
@@ -69,34 +70,33 @@ public class Partido implements Comparable<Partido>{
 		return coligacao;
 	}
 
-    /**
-     * Adiciona o(s) canditato(s) à lista de candidatos.
-     * O método aceita um número indefinido de candidatos como argumento.
-     * @param canditatos Canditatos a serem inseridos.
-     */
+	/**
+	 * Adiciona o(s) canditato(s) à lista de candidatos.
+	 * O método aceita um número indefinido de candidatos como argumento.
+	 * @param canditatos Canditatos a serem inseridos.
+	 */
 	public void addCandidato(Candidato cand){
-            if (!getCandidatos().contains(cand)){ //adiciona candidato na lista do partido
-            	getCandidatos().add(cand);
-				flagVotos = false;
-			}
+		if (!getCandidatos().contains(cand)){ //adiciona candidato na lista do partido
+			getCandidatos().add(cand);
+		}
 	}
 
-    /**
-     * Percorre a lista de canditatos calculando a soma dos votos.
-     * @return A soma dos votos dos candidatos do partido.
-     */
+	/**
+	 * Percorre a lista de canditatos calculando a soma dos votos.
+	 * @return A soma dos votos dos candidatos do partido.
+	 */
 	public int getVotos() {
 
-        int sum = 0;
-        for (Candidato c : candidatos) {
-            sum += c.getNvotos();
-        }
+		if (votos == 0) {
+			int sum = 0;
+			for (Candidato c : candidatos) {
+				sum += c.getNvotos();
+			}
 
-		votos = sum;
-		flagVotos = true;
-
-        return sum;
-    }
+			votos = sum;
+		}
+		return votos;
+	}
 
 	@Override
 	public int compareTo(Partido o) {
