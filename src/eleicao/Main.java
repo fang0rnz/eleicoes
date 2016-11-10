@@ -4,13 +4,12 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-public class Teste {
+public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException{
 		
 		if(args.length != 1){
 			System.out.println("É necessário informar (como ÚNICO parâmetro de execução) o nome do arquivo a ser analisado.");
-			System.out.println("Ex.: java executavel arquivo");
 			System.exit(1);
 		}
 			
