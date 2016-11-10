@@ -2,7 +2,6 @@ package eleicao;
 import java.util.HashMap;
 
 public class Coligacao implements Comparable<Coligacao> {
-	//uma ligação entre esta classe e a classe partido.
 	private String id;
 	private HashMap<String, Partido> partidos = new HashMap<String, Partido>();
 
